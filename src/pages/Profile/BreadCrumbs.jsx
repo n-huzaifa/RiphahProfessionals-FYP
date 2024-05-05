@@ -1,6 +1,17 @@
+import { signOut } from 'firebase/auth'
 import React from 'react'
+import { auth } from '../../firebase'
 
 function BreadCrumbs() {
+  async function handleSignOut(e) {
+    try {
+      e.preventDefault()
+      await signOut(auth)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <nav aria-label="breadcrumb" className="d-none d-md-inline">
       <ol className="breadcrumb text-info mb-0 align-items-center border d-flex justify-content-center rounded-0 border-bottom">
@@ -14,9 +25,9 @@ function BreadCrumbs() {
         <li className="breadcrumb-item">You are Logged in As: Student </li>
         <li className="breadcrumb-item">Welcome! MUHAMMAD WAIZ (19278) </li>
         <li className="breadcrumb-item">
-          <a href="index.html" className="text-danger">
+          <button onClick={handleSignOut} className="text-danger border-0 bg-transparent">
             Signout
-          </a>
+          </button>
         </li>
       </ol>
     </nav>

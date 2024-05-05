@@ -7,7 +7,7 @@ import Clock from '../../components/Clock'
 import Navbar from './Navbar'
 import LoginForms from './LoginForms'
 
-function Home({ setUser }) {
+function Login({ setUser }) {
   const [activeTab, setActiveTab] = useState('Graduatelogin')
 
   // Function to handle tab change
@@ -95,10 +95,10 @@ function Home({ setUser }) {
         className="bg-body-secondary text-center py-3 py-md-4 fw-semibold text-info-emphasis text-shadow"
         id="copyright"
       >
-        {/* Footer content goes here */}
+        © 2024 All rights reserved By Riphah International University Computer Science Department
       </footer>
     </>
   )
 }
 
-export default Home
+export default Login

@@ -1,34 +1,34 @@
-import React, { useState, useContext, Fragment } from 'react'
-import { BrowserRouter as Router, Route, Routes, Navigate, Outlet } from 'react-router-dom'
-import Home from './pages/Home'
-import Profile from './pages/Profile'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { AuthContext } from './Context/AuthContext'
+import { Protected } from './Protected'
+import Login from './pages/Login'
 import NotFound from './pages/NotFound'
-import UserContext from './UserContext'
-
-const PrivateRoute = () => {
-  const { user } = useContext(UserContext)
-  const isAuthenticated = () => !!user
-  return isAuthenticated() ? <Outlet /> : <Navigate to="/login" replace />
-}
+import Profile from './pages/Profile'
 
 function App() {
-  const [user, setUser] = useState(null)
-  console.log(user)
+  const router = createBrowserRouter([
+    {
+      path: '/' || '/profile',
+      element: (
+        <Protected>
+          <Profile />
+        </Protected>
+      ),
+    },
+    {
+      path: '/login',
+      element: <Login />,
+    },
+    {
+      path: '*',
+      element: <NotFound></NotFound>,
+    },
+  ])
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
-      <Router>
-        <Fragment>
-          <Routes>
-            <Route path="/login" element={<Home />} />
-            <Route exact path="/" element={<PrivateRoute />}>
-              <Route exact path="/" element={<Profile />} />
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Fragment>
-      </Router>
-    </UserContext.Provider>
+    <AuthContext>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthContext>
   )
 }
 

@@ -1,33 +1,27 @@
-import React, { useContext, useState } from 'react'
-import { auth, createUserWithEmailAndPassword, doc, firestore, setDoc } from '../../firebase'
-
-import UserContext from '../../UserContext'
+import React, { useState } from 'react'
+import { signInWithEmailAndPassword } from '../../firebase'
+import { useNavigate } from 'react-router-dom'
+import { getAuth } from 'firebase/auth'
+import Registration from './Registration'
 
 function LoginForms({ activeTab, handleTabChange }) {
   const [cnic, setCNIC] = useState('')
   const [rollNumber, setRollNumber] = useState('')
   const [password, setPassword] = useState('')
 
-  // Access the UserContext
-  const { setUser } = useContext(UserContext)
+  const auth = getAuth()
 
-  const handleSignup = async () => {
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, `${cnic}@example.com`, password)
-      const user = userCredential.user
+  const navigate = useNavigate()
 
-      await setDoc(doc(firestore, 'users', user.uid), {
-        cnic: cnic,
-        rollNo: rollNumber,
+  async function handleSignIn(e) {
+    e.preventDefault()
+    signInWithEmailAndPassword(auth, `${cnic}@example.com`, password)
+      .then((user) => {
+        navigate('/')
       })
-
-      // Update the user context
-      setUser(user)
-      console.log('SignUp Successful')
-    } catch (error) {
-      console.error(error)
-      throw error
-    }
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
   return (
@@ -117,7 +111,7 @@ function LoginForms({ activeTab, handleTabChange }) {
                 </label>
               </div>
               <div className="d-flex justify-content-end bg-light border-top">
-                <button onClick={handleSignup} type="button" className="m-4 d-flex btn btn-primary">
+                <button onClick={handleSignIn} type="button" className="m-4 d-flex btn btn-primary">
                   <div className="svg-wrapper-1">
                     <div className="svg-wrapper">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
@@ -134,73 +128,7 @@ function LoginForms({ activeTab, handleTabChange }) {
               </div>
             </form>
           </div>
-          <div
-            className={`tab-pane fade ${activeTab === 'Registrationlogin' ? 'show active' : ''}`}
-            id="Registrationlogin"
-          >
-            <form>
-              <div className="mb-3">
-                <label htmlFor="CNIC2" className="form-label">
-                  CNIC
-                </label>
-                <div className="input-group">
-                  <input type="number" className="form-control" id="CNIC2" />
-                  <span className="input-group-text" id="addon-wrapping">
-                    <i className="bi bi-person-fill mx-1"></i>
-                  </span>
-                </div>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="RollNumber2" className="form-label">
-                  Roll Number
-                </label>
-                <div className="input-group">
-                  <input type="number" className="form-control" id="RollNumber2" />
-                  <span className="input-group-text" id="addon-wrapping">
-                    <i className="bi bi-person-fill mx-1"></i>
-                  </span>
-                </div>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="Password2" className="form-label">
-                  Password
-                </label>
-                <div className="input-group mb-2">
-                  <input type="password" className="form-control" id="Password2" />
-                  <span className="input-group-text" id="addon-wrapping">
-                    <i className="bi bi-person-fill-lock"></i>
-                  </span>
-                </div>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="ConfirmPassword" className="form-label">
-                  Confirm Password
-                </label>
-                <div className="input-group">
-                  <input type="password" className="form-control" id="ConfirmPassword" />
-                  <span className="input-group-text" id="addon-wrapping">
-                    <i className="bi bi-person-fill-lock"></i>
-                  </span>
-                </div>
-              </div>
-              <div className="d-flex justify-content-end bg-light border-top">
-                <button className="m-4 style-btn" type="submit">
-                  <div className="svg-wrapper-1">
-                    <div className="svg-wrapper">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
-                        <path fill="none" d="M0 0h24v24H0z"></path>
-                        <path
-                          fill="currentColor"
-                          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <span>Register</span>
-                </button>
-              </div>
-            </form>
-          </div>
+          <Registration activeTab={activeTab} />
         </div>
       </div>
 
