@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound'
 import Profile from './pages/Profile'
 import Registration from './pages/Registration'
 import Alumni from './pages/Alumni'
+import AlumniProfile from './pages/AlumniProfile'
 function App() {
   const router = createBrowserRouter([
     {
@@ -37,6 +38,14 @@ function App() {
       element: (
         <Protected>
           <Alumni />
+        </Protected>
+      ),
+    },
+    {
+      path: '/alumni-profile',
+      element: (
+        <Protected>
+          <AlumniProfile />
         </Protected>
       ),
     },

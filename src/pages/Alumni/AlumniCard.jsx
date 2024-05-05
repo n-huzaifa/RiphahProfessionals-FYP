@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function AlumniCard({ user }) {
   return (
@@ -27,9 +28,9 @@ function AlumniCard({ user }) {
               {user?.job}
             </p>
           </div>
-          <a href="Waiz-profile.html" className="btn btn-outline-info">
+          <Link className="btn btn-primary" to={{ pathname: '/alumni-profile', search: `?id=${user?.id}` }}>
             Details
-          </a>
+          </Link>
         </div>
       </div>
     </div>
