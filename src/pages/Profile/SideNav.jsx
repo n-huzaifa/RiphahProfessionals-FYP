@@ -52,7 +52,7 @@ function SideNav() {
       <a href="./profile" className="list-group-item p-2 text-info-emphasis">
         <i className="bi bi-envelope-open-fill mx-2"></i>Message Board
       </a>
-      <a href="List-of-graduated.html" className="list-group-item p-2 text-info-emphasis">
+      <a href="./alumni" className="list-group-item p-2 text-info-emphasis">
         <i className="bi bi-mortarboard-fill mx-2"></i>Alumni
       </a>
       <a href="./profile" className="list-group-item p-2 text-info">

@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import NotFound from './pages/NotFound'
 import Profile from './pages/Profile'
 import Registration from './pages/Registration'
+import Alumni from './pages/Alumni'
 function App() {
   const router = createBrowserRouter([
     {
@@ -28,6 +29,14 @@ function App() {
       element: (
         <Protected>
           <Registration />
+        </Protected>
+      ),
+    },
+    {
+      path: '/alumni',
+      element: (
+        <Protected>
+          <Alumni />
         </Protected>
       ),
     },
