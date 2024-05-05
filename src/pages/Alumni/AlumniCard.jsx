@@ -5,7 +5,12 @@ function AlumniCard({ user }) {
   return (
     <div className="col-12 col-md-6 col-lg-4" data-aos="zoom-in">
       <div className="mb-3 mb-md-5 card border-info bg-light">
-        <img src="images/Male.jpg" className="card-img-top" alt="..." />
+        {user?.gender === 'Male' ? (
+          <img src="images/Male.jpg" className="card-img-top" alt="..." />
+        ) : (
+          <img src="images/Female.jpg" className="card-img-top" alt="..." />
+        )}
+
         <div className="card-body">
           <h3 className="card-title fw-semibold primary-font">{user?.name}</h3>
           <div>

@@ -6,7 +6,11 @@ function BasicInfo({ userData }) {
       <div className="border m-2">
         <p className="text-white style-color p-2 fs-6 fw-semibold">BASIC INFORMATION</p>
         <div className="m-2 border p-2">
-          <img src="images/Male.jpg" alt="" className="w-100" data-aos="zoom-in" />
+          {userData?.gender === 'Male' ? (
+            <img src="images/Male.jpg" className="card-img-top" alt="..." />
+          ) : (
+            <img src="images/Female.jpg" className="card-img-top" alt="..." />
+          )}
         </div>
         <div className="border bg-light m-2 p-3 fw-semibold text-info-emphasis">{userData?.name}</div>
       </div>
