@@ -19,7 +19,7 @@ function SideNav() {
       <a href="./profile" className="list-group-item p-2 text-info">
         <i className="bi bi-clock-fill mx-2"></i>My Timetable
       </a>
-      <a href="./login?id=attendance" className="list-group-item p-2 text-info">
+      <a href="./profile?id=attendance" className="list-group-item p-2 text-info">
         <i className="bi bi-tencent-qq mx-2"></i>Attendance
       </a>
       <a href="./profile" className="list-group-item p-2 text-info-emphasis">

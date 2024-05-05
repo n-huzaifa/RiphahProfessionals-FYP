@@ -4,11 +4,18 @@ import { Protected } from './Protected'
 import Login from './pages/Login'
 import NotFound from './pages/NotFound'
 import Profile from './pages/Profile'
-
 function App() {
   const router = createBrowserRouter([
     {
-      path: '/' || '/profile',
+      path: '/',
+      element: (
+        <Protected>
+          <Profile />
+        </Protected>
+      ),
+    },
+    {
+      path: '/profile',
       element: (
         <Protected>
           <Profile />
