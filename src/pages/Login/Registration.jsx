@@ -26,9 +26,20 @@ function Registration({ activeTab }) {
         setPasswordError('Passwords do not match')
         return
       }
+
+      if (formData.CNIC.length < 13 || !/^\d+$/.test(formData.CNIC)) {
+        setPasswordError('CNIC is incorrect')
+        return
+      }
+
+      if (formData.RollNumber.length < 6 || !/^\d+$/.test(formData.RollNumber)) {
+        setPasswordError('Roll Number is incorrect')
+        return
+      }
+
       const userCredential = await createUserWithEmailAndPassword(
         auth,
-        `${formData.CNIC}@example.com`,
+        `${formData.CNIC}@${formData.RollNumber}.com`,
         formData.Password
       )
       const user = userCredential.user
@@ -40,7 +51,7 @@ function Registration({ activeTab }) {
       })
 
       console.log('SignUp Successful')
-      navigate('/')
+      navigate('/registration')
     } catch (error) {
       console.error(error)
       throw error
@@ -60,8 +71,8 @@ function Registration({ activeTab }) {
               id="CNIC"
               value={formData.CNIC}
               onChange={handleInputChange}
-              placeholder="XXXXX-XXXXXXX-X"
-              maxLength={15} // Added maxLength to restrict input length
+              placeholder="XXXXXXXXXXXXX"
+              maxLength={13} // Added maxLength to restrict input length
             />
 
             <span className="input-group-text" id="addon-wrapping">
@@ -75,9 +86,10 @@ function Registration({ activeTab }) {
           </label>
           <div className="input-group">
             <input
-              type="number"
+              type="text"
               className="form-control"
               id="RollNumber"
+              maxLength={6}
               value={formData.RollNumber}
               onChange={handleInputChange}
             />

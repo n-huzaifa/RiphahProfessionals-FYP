@@ -2,50 +2,70 @@ import React from 'react'
 
 function Attendance() {
   return (
-    <div class="col-12 col-lg-10 p-0">
-      <div class="border m-2">
-        <p class="text-white style-color p-2 fs-6 fw-semibold mb-0">
-          <i class="bi bi-person-fill mx-1"></i>View All Student Attendance
+    <div className="col-12 col-lg-10 p-0">
+      <div className="border m-2">
+        <p className="text-white style-color p-2 fs-6 fw-semibold mb-0">
+          <i className="bi bi-person-fill mx-1"></i>View All Student Attendance
         </p>
-        <div class="border-bottom p-2 p-md-3">
-          <div class="d-block d-md-flex justify-content-between align-items-center">
-            <div class="d-flex mb-2 mb-md-0">
-              <div class="mx-1 p-1 btn btn-sm btn-outline-info">Export to Excel</div>
-              <div class="mx-1 p-1 btn btn-sm btn-outline-info">Export to PDF</div>
-              <div class="mx-1 p-1 btn btn-sm btn-outline-info">Print</div>
-              <div class="mx-1 p-1 btn btn-sm btn-outline-info">Set Filter</div>
+        <div className="border-bottom p-2 p-md-3">
+          <div className="d-block d-md-flex justify-content-between align-items-center">
+            <div className="d-flex mb-2 mb-md-0">
+              <div className="mx-1 p-1 btn btn-sm btn-outline-info">Export to Excel</div>
+              <div className="mx-1 p-1 btn btn-sm btn-outline-info">Export to PDF</div>
+              <div className="mx-1 p-1 btn btn-sm btn-outline-info">Print</div>
+              <div className="mx-1 p-1 btn btn-sm btn-outline-info">Set Filter</div>
             </div>
-            <div class="d-flex align-items-center">
-              <div class="mx-1">
+            <div className="d-flex align-items-center">
+              <div className="mx-1">
                 <small>Form Submitted?</small>
               </div>
-              <div class="mx-1">
-                <div class="toggler">
-                  <input id="toggler-1" name="toggler-1" type="checkbox" value="1" checked />
-                  <label for="toggler-1">
-                    <svg class="toggler-on" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-                      <polyline class="path check" points="100.2,40.2 51.5,88.8 29.8,67.5"></polyline>
+              <div className="mx-1">
+                <div className="toggler">
+                  <input id="toggler-1" name="toggler-1" type="checkbox" value="1" defaultChecked />
+                  <label htmlFor="toggler-1">
+                    <svg
+                      className="toggler-on"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 130.2 130.2"
+                    >
+                      <polyline className="path check" points="100.2,40.2 51.5,88.8 29.8,67.5"></polyline>
                     </svg>
-                    <svg class="toggler-off" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-                      <line class="path line" x1="34.4" y1="34.4" x2="95.8" y2="95.8"></line>
-                      <line class="path line" x1="95.8" y1="34.4" x2="34.4" y2="95.8"></line>
+                    <svg
+                      className="toggler-off"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 130.2 130.2"
+                    >
+                      <line className="path line" x1="34.4" y1="34.4" x2="95.8" y2="95.8"></line>
+                      <line className="path line" x1="95.8" y1="34.4" x2="34.4" y2="95.8"></line>
                     </svg>
                   </label>
                 </div>
               </div>
-              <div class="mx-1">
+              <div className="mx-1">
                 <small>Open Inline</small>
               </div>
-              <div class="mx-1">
-                <div class="toggler">
+              <div className="mx-1">
+                <div className="toggler">
                   <input id="toggler-2" name="toggler-2" type="checkbox" value="1" />
-                  <label for="toggler-2">
-                    <svg class="toggler-on" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-                      <polyline class="path check" points="100.2,40.2 51.5,88.8 29.8,67.5"></polyline>
+                  <label htmlFor="toggler-2">
+                    <svg
+                      className="toggler-on"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 130.2 130.2"
+                    >
+                      <polyline className="path check" points="100.2,40.2 51.5,88.8 29.8,67.5"></polyline>
                     </svg>
-                    <svg class="toggler-off" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130.2 130.2">
-                      <line class="path line" x1="34.4" y1="34.4" x2="95.8" y2="95.8"></line>
-                      <line class="path line" x1="95.8" y1="34.4" x2="34.4" y2="95.8"></line>
+                    <svg
+                      className="toggler-off"
+                      version="1.1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 130.2 130.2"
+                    >
+                      <line className="path line" x1="34.4" y1="34.4" x2="95.8" y2="95.8"></line>
+                      <line className="path line" x1="95.8" y1="34.4" x2="34.4" y2="95.8"></line>
                     </svg>
                   </label>
                 </div>
@@ -53,13 +73,13 @@ function Attendance() {
             </div>
           </div>
         </div>
-        <div class="p-2">
-          <div class="bg-warning-subtle border border-warning mb-2 d-block d-md-flex justify-content-around p-3 fw-semibold text-warning-emphasis">
-            <div class="">Roll No: 19278</div>
-            <div class="">Degree: BS Computer Science</div>
-            <div class="">Name: MUHAMMAD WAIZ</div>
+        <div className="p-2">
+          <div className="bg-warning-subtle border border-warning mb-2 d-block d-md-flex justify-content-around p-3 fw-semibold text-warning-emphasis">
+            <div className="">Roll No: 19278</div>
+            <div className="">Degree: BS Computer Science</div>
+            <div className="">Name: MUHAMMAD WAIZ</div>
           </div>
-          <table class="table table-hover table-bordered table-responsive mb-3">
+          <table className="table table-hover table-bordered table-responsive mb-3">
             <thead>
               <tr>
                 <th scope="col">Sr.</th>
@@ -135,8 +155,8 @@ function Attendance() {
               </tr>
             </tbody>
           </table>
-          <div class="bg-primary-subtle p-3 text-center text-primary-emphasis fw-semibold border border-primary">
-            <i class="bi bi-clock-fill mx-2"></i>if there is any mistake in the Attendance, Please contact with your
+          <div className="bg-primary-subtle p-3 text-center text-primary-emphasis fw-semibold border border-primary">
+            <i className="bi bi-clock-fill mx-2"></i>if there is any mistake in the Attendance, Please contact with your
             concern department.
           </div>
         </div>

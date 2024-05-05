@@ -4,6 +4,7 @@ import { Protected } from './Protected'
 import Login from './pages/Login'
 import NotFound from './pages/NotFound'
 import Profile from './pages/Profile'
+import Registration from './pages/Registration'
 function App() {
   const router = createBrowserRouter([
     {
@@ -19,6 +20,14 @@ function App() {
       element: (
         <Protected>
           <Profile />
+        </Protected>
+      ),
+    },
+    {
+      path: '/registration',
+      element: (
+        <Protected>
+          <Registration />
         </Protected>
       ),
     },
