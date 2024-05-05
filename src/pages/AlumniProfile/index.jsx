@@ -63,7 +63,11 @@ function AlumniProfile() {
               {/* <!-- Avatar Box  --> */}
               <div>
                 <div className="border mb-2">
-                  <img src="images/Male.jpg" alt="" className="w-100" />
+                  {user?.gender === 'Male' ? (
+                    <img src="images/Male.jpg" className="card-img-top" alt="..." />
+                  ) : (
+                    <img src="images/Female.jpg" className="card-img-top" alt="..." />
+                  )}
                 </div>
                 <h2 className="primary-font fw-bold mb-4 mb-0">{user?.name}</h2>
               </div>
