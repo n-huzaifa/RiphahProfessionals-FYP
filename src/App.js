@@ -4,7 +4,6 @@ import Home from './pages/Home'
 import Profile from './pages/Profile'
 import NotFound from './pages/NotFound'
 import UserContext from './UserContext'
-require('dotenv').config()
 
 const PrivateRoute = () => {
   const { user } = useContext(UserContext)
@@ -21,7 +20,7 @@ function App() {
       <Router>
         <Fragment>
           <Routes>
-            <Route path="/login" element={<Profile />} />
+            <Route path="/login" element={<Home />} />
             <Route exact path="/" element={<PrivateRoute />}>
               <Route exact path="/" element={<Profile />} />
             </Route>
