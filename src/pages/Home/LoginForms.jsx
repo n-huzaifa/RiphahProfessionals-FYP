@@ -40,7 +40,7 @@ function LoginForms({ activeTab, handleTabChange }) {
               className={`nav-link text-secondary ${activeTab === 'Graduatelogin' ? 'active' : ''}`}
               onClick={() => handleTabChange('Graduatelogin')}
             >
-              <i className="bi bi-mortarboard-fill mx-1"></i>Alumni
+              <i className="bi bi-mortarboard-fill mx-1"></i>Login
             </button>
           </li>
           <li className="nav-item">
@@ -49,14 +49,6 @@ function LoginForms({ activeTab, handleTabChange }) {
               onClick={() => handleTabChange('Registrationlogin')}
             >
               <i className="bi bi-cursor-fill mx-1"></i>Registration
-            </button>
-          </li>
-          <li className="nav-item">
-            <button
-              className={`nav-link text-secondary ${activeTab === 'studentlogin' ? 'active' : ''}`}
-              onClick={() => handleTabChange('studentlogin')}
-            >
-              <i className="bi bi-person-fill mx-1"></i>Login
             </button>
           </li>
         </ul>
@@ -206,68 +198,6 @@ function LoginForms({ activeTab, handleTabChange }) {
                   </div>
                   <span>Register</span>
                 </button>
-              </div>
-            </form>
-          </div>
-          <div className={`tab-pane fade ${activeTab === 'studentlogin' ? 'show active' : ''}`} id="studentlogin">
-            <form>
-              <div className="mb-3">
-                <label htmlFor="CNIC3" className="form-label">
-                  CNIC
-                </label>
-                <div className="input-group">
-                  <input type="number" className="form-control" id="CNIC3" />
-                  <span className="input-group-text" id="addon-wrapping">
-                    <i className="bi bi-person-fill mx-1"></i>
-                  </span>
-                </div>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="RollNumber3" className="form-label">
-                  Roll Number
-                </label>
-                <div className="input-group">
-                  <input type="number" className="form-control" id="RollNumber3" />
-                  <span className="input-group-text" id="addon-wrapping">
-                    <i className="bi bi-person-fill mx-1"></i>
-                  </span>
-                </div>
-              </div>
-              <div className="mb-3">
-                <label htmlFor="Password3" className="form-label">
-                  Password
-                </label>
-                <div className="input-group mb-2">
-                  <input type="password" className="form-control" id="Password3" />
-                  <span className="input-group-text" id="addon-wrapping">
-                    <i className="bi bi-person-fill-lock"></i>
-                  </span>
-                </div>
-                <a href="google.com" className="text-decoration-none">
-                  Forgot password?
-                </a>
-              </div>
-              <div className="mb-3 form-check">
-                <input type="checkbox" className="form-check-input rounded-0" id="checkbox2" />
-                <label className="form-check-label" htmlFor="checkbox2">
-                  Stay signed in
-                </label>
-              </div>
-              <div className="d-flex justify-content-end bg-light border-top">
-                <a href="Student-profile.html" className="m-4 style-btn text-decoration-none">
-                  <div className="svg-wrapper-1">
-                    <div className="svg-wrapper">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18">
-                        <path fill="none" d="M0 0h24v24H0z"></path>
-                        <path
-                          fill="currentColor"
-                          d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                  <span>Login</span>
-                </a>
               </div>
             </form>
           </div>
