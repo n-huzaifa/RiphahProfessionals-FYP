@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Attendance() {
+function Attendance({ userData }) {
   return (
     <div className="col-12 col-lg-10 p-0">
       <div className="border m-2">
@@ -75,9 +75,9 @@ function Attendance() {
         </div>
         <div className="p-2">
           <div className="bg-warning-subtle border border-warning mb-2 d-block d-md-flex justify-content-around p-3 fw-semibold text-warning-emphasis">
-            <div className="">Roll No: 19278</div>
+            <div className="">Roll No: {userData?.rollNo}</div>
             <div className="">Degree: BS Computer Science</div>
-            <div className="">Name: MUHAMMAD WAIZ</div>
+            <div className="">Name: {userData?.name}</div>
           </div>
           <table className="table table-hover table-bordered table-responsive mb-3">
             <thead>
@@ -99,7 +99,7 @@ function Attendance() {
             <tbody>
               <tr>
                 <td>1</td>
-                <td>MUHAMMAD WAIZ</td>
+                <td>{userData?.name}</td>
                 <td>Information Security</td>
                 <td>Ghulam Mustafa</td>
                 <td>3(3-0)</td>
@@ -113,7 +113,7 @@ function Attendance() {
               </tr>
               <tr>
                 <td>2</td>
-                <td>MUHAMMAD WAIZ</td>
+                <td>{userData?.name}</td>
                 <td>Technical & Business Writing</td>
                 <td>Faiza Javed Dar</td>
                 <td>3(3-0)</td>
@@ -127,7 +127,7 @@ function Attendance() {
               </tr>
               <tr>
                 <td>3</td>
-                <td>MUHAMMAD WAIZ</td>
+                <td>{userData?.name}</td>
                 <td>Parallel and Distributed Computing</td>
                 <td>Noshar Whan Adil</td>
                 <td>3(3-0)</td>
@@ -141,7 +141,7 @@ function Attendance() {
               </tr>
               <tr>
                 <td>4</td>
-                <td>MUHAMMAD WAIZ</td>
+                <td>{userData?.name}</td>
                 <td>Professional Practices</td>
                 <td>Ubaid Ullah</td>
                 <td>3(3-0)</td>
