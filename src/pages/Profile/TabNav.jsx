@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function TabNav() {
+function TabNav({ userData }) {
   const [activeTab, setActiveTab] = useState('Alumni')
 
   return (
@@ -129,31 +129,33 @@ function TabNav() {
                   <strong>Reg Date:</strong>11/8/2020 10:42:37 AM
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
-                  <strong>Email:</strong>waizshaban215gmail.com
+                  <strong>Email:</strong>
+                  {userData?.email}
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
-                  <strong>Home Phone:</strong>+92 (32) 3965940
+                  <strong>Home Phone:</strong>
+                  {userData?.number}
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
                   <strong>Mobile:</strong>+92 (305) 7293362
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
-                  <strong>Gender:</strong>Male
+                  <strong>Gender:</strong>
+                  {userData?.gender}
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
                   <strong>Zip Postal:</strong>38000
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
-                  <strong>Address:</strong>486-B Street No 17 Nazimabad Faisalabad
+                  <strong>Address:</strong>
+                  {userData?.location}
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
                   <strong>Date of Birth:</strong>7/9/2002 11:28:32 PM
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
-                  <strong>First Name:</strong>MUHAMMAD WAIZ
-                </li>
-                <li className="list-group-item border-0 p-0 mb-2 text-muted">
-                  <strong>Last Name:</strong>SHABAN GULL
+                  <strong>Full Name:</strong>
+                  {userData?.name}
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
                   <strong>Religion:</strong>Islam
@@ -171,13 +173,15 @@ function TabNav() {
                   <strong>Mother Tongue:</strong>Urdu
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
-                  <strong>Roll No:</strong>19278
+                  <strong>Roll No:</strong>
+                  {userData?.rollNo}
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
-                  <strong>Registration No:</strong>F20A14U20186
+                  <strong>Registration No:</strong>F20A14{userData?.rollNo}
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
-                  <strong>Enrolled In:</strong>Fall 2020
+                  <strong>Enrolled For:</strong>
+                  {userData?.session}
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
                   <strong>Current Semester:</strong>7
@@ -190,10 +194,12 @@ function TabNav() {
             <div className="col-md-4">
               <ul className="list-group">
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
-                  <strong>Emergency Contact Name:</strong>Shaban Gull
+                  <strong>Emergency Contact Name:</strong>
+                  {userData?.name}
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
-                  <strong>Emergency Contact No:</strong>+92 (300) 7617173
+                  <strong>Emergency Contact No:</strong>
+                  {userData?.number}
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
                   <strong>District:</strong>Faisalabad
@@ -205,7 +211,8 @@ function TabNav() {
                   <strong>Is Criminal:</strong>False
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
-                  <strong>CNIC:</strong>33100-6151961-7
+                  <strong>CNIC:</strong>
+                  {userData?.cnic}
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
                   <strong>Is Hafiz:</strong>False
@@ -229,7 +236,8 @@ function TabNav() {
                   <strong>Country Name:</strong>Pakistan
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
-                  <strong>Dept Name:</strong>Computing
+                  <strong>Dept Name:</strong>
+                  {userData?.department}
                 </li>
                 <li className="list-group-item border-0 p-0 mb-2 text-muted">
                   <strong>City Name:</strong>Faisalabad
@@ -247,7 +255,8 @@ function TabNav() {
                   <strong>Degree Name:</strong>BS Computer Science
                 </li>
                 <li className="list-group-item border-0 p-0 text-muted">
-                  <strong>Year Of Passing:</strong>2020
+                  <strong>Year Of Passing:</strong>
+                  {userData?.session?.split('-')[0]}
                 </li>
               </ul>
             </div>

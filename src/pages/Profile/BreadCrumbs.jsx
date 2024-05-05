@@ -2,7 +2,7 @@ import { signOut } from 'firebase/auth'
 import React from 'react'
 import { auth } from '../../firebase'
 
-function BreadCrumbs() {
+function BreadCrumbs({ userData }) {
   async function handleSignOut(e) {
     try {
       e.preventDefault()
@@ -23,7 +23,9 @@ function BreadCrumbs() {
         <li className="breadcrumb-item">Riphah College Of Computing </li>
         <li className="breadcrumb-item">Department of Computing </li>
         <li className="breadcrumb-item">You are Logged in As: Student </li>
-        <li className="breadcrumb-item">Welcome! MUHAMMAD WAIZ (19278) </li>
+        <li className="breadcrumb-item">
+          Welcome! {userData?.name} ({userData?.rollNo}){' '}
+        </li>
         <li className="breadcrumb-item">
           <button onClick={handleSignOut} className="text-danger border-0 bg-transparent">
             Signout

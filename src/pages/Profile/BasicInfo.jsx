@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BasicInfo() {
+function BasicInfo({ userData }) {
   return (
     <div className="col-12 col-md-4 col-lg-2 p-0">
       <div className="border m-2">
@@ -8,15 +8,17 @@ function BasicInfo() {
         <div className="m-2 border p-2">
           <img src="images/Male.jpg" alt="" className="w-100" data-aos="zoom-in" />
         </div>
-        <div className="border bg-light m-2 p-3 fw-semibold text-info-emphasis">MUHAMMAD WAIZ SHABAN GULL</div>
+        <div className="border bg-light m-2 p-3 fw-semibold text-info-emphasis">{userData?.name}</div>
       </div>
       <div className="border m-2">
         <p className="text-white style-color p-2 fs-6 mb-0 fw-semibold">Contact</p>
         <small className="d-block border-bottom text-info-emphasis py-2 px-1 fw-semibold">
-          <i className="bi bi-envelope-fill mx-1"></i>waizshaban215@gmail.com
+          <i className="bi bi-envelope-fill mx-1"></i>
+          {userData?.email}
         </small>
         <small className="d-block border-bottom text-info-emphasis py-2 px-1 fw-semibold">
-          <i className="bi bi-phone-fill mx-1"></i>+92 (305) 7293362
+          <i className="bi bi-phone-fill mx-1"></i>
+          {userData?.number}
         </small>
         <small className="d-block text-info-emphasis py-2 px-1 fw-semibold">
           <i className="bi bi-telephone-fill mx-1"></i>041-8777210
