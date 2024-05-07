@@ -2,12 +2,12 @@
 
 ## Members
 
-1. Moeez Azam
-2. Waiz
-3. Ahmad Butt
-4. Usman Awan
+1. Moeez Azam-(16823)
+2. Muhammad Waiz-(19278)
+3. Muhammad Ahmad-(19476)
+4. Usman Faisal-(17299)
 
-## Project Title
+## **Project Title**
 
 **Riphah Professionals (Alumni Based Riphah Student Portal)**
 
