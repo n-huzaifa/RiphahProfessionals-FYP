@@ -12,28 +12,35 @@ import 'aos/dist/aos.css'
 import './Header.css'
 import Attendance from './Attendance'
 import { useLocation } from 'react-router-dom'
-import { firestore, collection, getDocs } from '../../firebase'
+import { firestore, collection, getDocs, auth } from '../../firebase'
 import { isEmpty } from 'lodash'
+import { query, where } from 'firebase/firestore'
 
 function Profile() {
   const location = useLocation()
   const params = new URLSearchParams(location.search)
   const id = params.get('id')
   const [userData, setUserData] = useState([])
-
+  const currentUser = auth.currentUser
   useEffect(() => {
     const fetchData = async () => {
-      const userCollectionRef = collection(firestore, 'users')
-      const querySnapshot = await getDocs(userCollectionRef)
-      const data = []
-      querySnapshot.forEach((doc) => {
-        data.push({ id: doc.id, ...doc.data() })
-      })
-      setUserData(data[0])
-      console.log(data[0])
+      if (currentUser) {
+        const cnic = currentUser.email?.split('@')[0]
+        const userCollectionRef = collection(firestore, 'users')
+        const q = query(userCollectionRef, where('cnic', '==', cnic))
+        const querySnapshot = await getDocs(q)
+        if (!querySnapshot.empty) {
+          querySnapshot.forEach((doc) => {
+            setUserData({ id: doc.id, ...doc.data() })
+          })
+        } else {
+          console.log('No matching documents.')
+        }
+      }
     }
 
     fetchData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const info = (
     <>
