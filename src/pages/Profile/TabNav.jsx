@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function TabNav({ userData }) {
   const [activeTab, setActiveTab] = useState('Alumni')
@@ -60,7 +61,7 @@ function TabNav({ userData }) {
               Explore the Alumni Connect Module today and unlock a universe of opportunities!!!
             </p>
             {/* <!-- Explore button --> */}
-            <a href="List-of-graduated.html" className="styled-btn mx-0 mx-md-2" type="button">
+            <Link to="/profile?id=alumni-chat" className="styled-btn mx-0 mx-md-2">
               <div className="strong">Explore</div>
               <div id="container-stars">
                 <div id="stars"></div>
@@ -69,7 +70,7 @@ function TabNav({ userData }) {
                 <div className="circle"></div>
                 <div className="circle"></div>
               </div>
-            </a>
+            </Link>
           </div>
         </div>
         <div className={`tab-pane fade ${activeTab === 'Education' ? 'show active' : ''} p-2`} id="Education">

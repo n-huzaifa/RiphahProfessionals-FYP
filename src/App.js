@@ -7,6 +7,7 @@ import Profile from './pages/Profile'
 import Registration from './pages/Registration'
 import Alumni from './pages/Alumni'
 import AlumniProfile from './pages/AlumniProfile'
+import AlumniChat from './pages/AlumniChat'
 function App() {
   const router = createBrowserRouter([
     {
@@ -46,6 +47,14 @@ function App() {
       element: (
         <Protected>
           <AlumniProfile />
+        </Protected>
+      ),
+    },
+    {
+      path: '/alumni-chat',
+      element: (
+        <Protected>
+          <AlumniChat />
         </Protected>
       ),
     },

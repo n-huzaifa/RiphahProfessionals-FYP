@@ -15,6 +15,7 @@ import { useLocation } from 'react-router-dom'
 import { firestore, collection, getDocs, auth } from '../../firebase'
 import { isEmpty } from 'lodash'
 import { query, where } from 'firebase/firestore'
+import AlumniChat from '../AlumniChat'
 
 function Profile() {
   const location = useLocation()
@@ -53,6 +54,8 @@ function Profile() {
 
   const attendance = <Attendance userData={userData} />
 
+  const alumnichat = <AlumniChat />
+
   useEffect(() => {
     AOS.init({ duration: 1000, once: true })
   }, [])
@@ -74,7 +77,7 @@ function Profile() {
               <div className="col-2 d-lg-inline d-none p-0">
                 <SideNav />
               </div>
-              {id === 'attendance' ? attendance : info}
+              {id === 'attendance' ? attendance : id === 'alumni-chat' ? alumnichat : info}
             </div>
           </section>
         </>
