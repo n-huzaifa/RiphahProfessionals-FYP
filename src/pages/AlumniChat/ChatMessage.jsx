@@ -18,7 +18,7 @@ function ChatMessage({ index, message }) {
         height="40"
         style={imageMargin}
       />
-      <span className={`align-middle ${messageClass}`} style={{ width: '100%', ...textAlignment }}>
+      <span className={`align-middle ${messageClass}`} style={{ width: '40%', ...textAlignment }}>
         {text}
       </span>
     </div>
