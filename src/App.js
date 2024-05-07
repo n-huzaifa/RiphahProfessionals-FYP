@@ -51,14 +51,6 @@ function App() {
       ),
     },
     {
-      path: '/alumni-chat',
-      element: (
-        <Protected>
-          <AlumniChat />
-        </Protected>
-      ),
-    },
-    {
       path: '/login',
       element: <Login />,
     },
