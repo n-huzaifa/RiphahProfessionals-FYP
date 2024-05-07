@@ -4,7 +4,7 @@ import { auth } from '../../firebase'
 function ChatMessage({ index, message }) {
   const { uid, text } = message
   const isCurrentUser = uid === auth.currentUser.uid
-  const messageClass = isCurrentUser ? 'bg-primary text-white rounded' : 'bg-secondary text-dark'
+  const messageClass = isCurrentUser ? 'bg-primary text-white rounded' : 'bg-secondary rounded text-dark'
   const flexClass = isCurrentUser ? 'flex-row-reverse' : 'flex-row'
   const textAlignment = isCurrentUser ? { textAlign: 'right' } : { textAlign: 'left' }
   const imageMargin = isCurrentUser ? { marginLeft: '5px' } : { marginRight: '5px' }
