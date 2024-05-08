@@ -4,10 +4,12 @@ import { useCollectionData } from 'react-firebase-hooks/firestore'
 import ChatMessage from './ChatMessage'
 import { addDoc, limit, orderBy, query } from 'firebase/firestore'
 
-function ChatRoom() {
+function ChatRoom({ userData }) {
   const dummy = useRef()
   const messageRef = collection(firestore, 'messages')
   const messageQuery = query(messageRef, orderBy('createdAt'), limit(25))
+  const womanImage = 'https://randomuser.me/api/portraits/women/76.jpg'
+  const manImage = 'https://randomuser.me/api/portraits/men/86.jpg'
 
   const [messages] = useCollectionData(messageQuery, { idField: 'id' })
 
@@ -22,6 +24,8 @@ function ChatRoom() {
       text: formValue,
       createdAt: new Date(),
       uid,
+      name: userData?.name,
+      img: userData?.gender === 'Male' ? manImage : womanImage,
     })
 
     setFormValue('')
@@ -32,7 +36,7 @@ function ChatRoom() {
     <>
       <h3 className="mt-2">Alumni Chat</h3>
       <div style={{ maxHeight: '70vh', overflowY: 'auto', padding: '0 100px' }}>
-        {messages && messages.map((msg, index) => <ChatMessage key={index} message={msg} />)}
+        {messages && messages.map((msg, index) => <ChatMessage key={index} message={msg} userData={userData} />)}
 
         <span ref={dummy}></span>
       </div>

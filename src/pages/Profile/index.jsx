@@ -54,7 +54,7 @@ function Profile() {
 
   const attendance = <Attendance userData={userData} />
 
-  const alumnichat = <AlumniChat />
+  const alumnichat = <AlumniChat userData={userData} />
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true })
