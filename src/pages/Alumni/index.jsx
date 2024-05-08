@@ -28,8 +28,7 @@ function Alumni() {
             // Filter documents with session more than 4 years old and not the current user
             const sessionDate = new Date(item.session)
             const currentDate = new Date()
-            const differenceInYears = currentDate.getFullYear() - sessionDate.getFullYear()
-            return differenceInYears > 4 && item.email !== currentUserEmail
+            return sessionDate < currentDate && item.email !== currentUserEmail
           })
           .filter((user) => user.department === selectedDepartment)
         setUsers(data)

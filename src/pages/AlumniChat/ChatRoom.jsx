@@ -41,6 +41,12 @@ function ChatRoom() {
           value={formValue}
           onChange={(e) => setFormValue(e.target.value)}
           placeholder="Say something nice"
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              e.preventDefault()
+              sendMessage(e)
+            }
+          }}
           className="form-control mr-2"
           style={{ borderRadius: '20px' }}
         />
