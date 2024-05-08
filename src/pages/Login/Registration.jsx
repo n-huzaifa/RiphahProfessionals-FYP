@@ -32,7 +32,7 @@ function Registration({ activeTab }) {
         return
       }
 
-      if (formData.RollNumber.length < 6 || !/^\d+$/.test(formData.RollNumber)) {
+      if (formData.RollNumber.length < 5 || !/^\d+$/.test(formData.RollNumber)) {
         setPasswordError('Roll Number is incorrect')
         return
       }
@@ -89,7 +89,7 @@ function Registration({ activeTab }) {
               type="text"
               className="form-control"
               id="RollNumber"
-              maxLength={6}
+              maxLength={5}
               value={formData.RollNumber}
               onChange={handleInputChange}
             />

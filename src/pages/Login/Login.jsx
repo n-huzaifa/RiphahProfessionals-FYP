@@ -54,7 +54,7 @@ function Login({ activeTab }) {
               className="form-control"
               id="RollNumber1"
               value={rollNumber}
-              maxLength={6}
+              maxLength={5}
               onChange={(e) => setRollNumber(e.target.value)}
             />
             <span className="input-group-text" id="addon-wrapping">
